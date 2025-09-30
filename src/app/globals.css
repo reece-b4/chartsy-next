@@ -1,6 +1,11 @@
+@import "tailwindcss";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --okclh1: oklch(0.623 0.199 264.05);
+  --okclh2: oklch(0.7 0.1 265);
+  --okclh3: oklch(0.7 0.1 215);
 }
 
 @media (prefers-color-scheme: dark) {
