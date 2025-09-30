@@ -13,8 +13,10 @@ import Collections from "@/app/collections/page";
 // refactor/remove unused app/page.module.css next boilerplate css
 // refer to todos in notes
 // TODO: deploy new BE and link this FE once live, point components to appropriate DB data then remove placeholder data in this FE
+//  TODO: host this FE and point portfolio website QA to this instead of Vue FE
 // TODO: meet the minimum contrast of at least 4.5:1 as defined in WCAG 2.1 Rule 1.4.3, create a custom theme with a contrast threshold value of 4.5 as follows:
 // and other accessibility implementations to appropriate standards
+// once mvp complete: tracer method add new features: more data types, charts, ai analysis of data
 
 export default function Home() {
   return (
