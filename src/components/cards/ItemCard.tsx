@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
+import { Item } from "chartsy-types";
+type Props = { item: Item; href: string;};
 
-type Item = { id: number; item_name: string };
-
-export default function ItemCard({ item, href }: { item: Item; href: string }) {
+export default function ItemCard( {item, href} : Props) {
   return (
     <Link href={href} className="block">
       <Card>
