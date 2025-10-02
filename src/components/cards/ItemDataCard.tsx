@@ -1,0 +1,40 @@
+import { Divider } from "@mui/material";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { SingleItemData } from "chartsy-types";
+
+type Props = { iData: SingleItemData };
+
+export default function ItemDataCard({ iData }: Props) {
+  const created = new Date(iData.created_at).toLocaleString();
+  const updated = new Date(iData.updated_at).toLocaleString();
+  const showUpdated = created !== updated
+  return (
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <Typography sx={{ color: "text.secondary", fontSize: 14, mb: showUpdated?0:1.5 }}>
+          created: {created}
+        </Typography>
+        {updated !== created && (
+          <Typography sx={{ color: "text.secondary", mb: 1.5, fontSize: 14 }}>
+            {updated}
+          </Typography>
+        )}
+        <Divider></Divider>
+        <Typography variant="body2" sx={{ mt: 1.5 }}>
+          {iData.data_body}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">update</Button>
+        <Button size="small">delete</Button>
+        <Button size="small">insights</Button>
+      </CardActions>
+    </Card>
+  );
+}

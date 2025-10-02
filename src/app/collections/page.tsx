@@ -18,19 +18,18 @@ export default async function CollectionsPage() {
           display: "flex",
           justifyContent: "center",
           marginBottom: "1rem"
-
         }}>
         Collections
       </Typography>
-      <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {collections.map((c) => (
-          <CollectionCard key={c.id} collection={c} />
+          <CollectionCard key={c.id} collection={c} href={`/collections/${c.id}`} />
         ))}
       </div>
     </section>
   );
 }
 
-async function getCollections() {
+const getCollections = async () => {
   return collections;
 }

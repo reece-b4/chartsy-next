@@ -4,13 +4,13 @@ import Link from "next/link";
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import { Collection } from "chartsy-types";
 
+ type Props = {collection: Collection, href: string};
+
 export default function CollectionCard({
-  collection,
-}: {
-  collection: Collection;
-}) {
+  collection, href
+}: Props) {
   return (
-    <Link href={`/collections/${collection.id}`} className="block">
+    <Link href={href} className="block">
       <Card sx={{marginBottom: "0.8rem"}}>
         <CardActionArea>
           <CardContent>
