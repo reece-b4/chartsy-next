@@ -22,7 +22,7 @@ export default function ItemDataCard({ iData }: Props) {
         </Typography>
         {updated !== created && (
           <Typography sx={{ color: "text.secondary", mb: 1.5, fontSize: 14 }}>
-            {updated}
+            updated: {updated}
           </Typography>
         )}
         <Divider></Divider>
