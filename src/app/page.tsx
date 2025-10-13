@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Collections from "@/app/collections/page";
 
+// mui components seem to be heavily div based when there are more semantic/accessible html tags that could be used
 //   TODO: refactor navbar duplicate element props to ensure more DRY and ease of updating all instances by single source of truth
 // read up on 'use client' more
 //    TODO: navbar: implement routes for chartsy typography, page buttons and avatar button
@@ -9,6 +10,7 @@ import Collections from "@/app/collections/page";
 // link up pages correctly
 // put in content as mui components
 // clean up code, collate TODOs
+// linear page stepper/ navigation collectionname > itemname >  etc (with icons)
 // check standardised way of component structure ie, functions and vars outside of default function? and what order they should be in?
 // implements store for current collection and current item, current item data? (or is that too large potentially?)
 // swiper functionality
@@ -28,6 +30,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        {/* do links directly replace collections here ie, app layout persists, div and main tags above persist? */}
         <Collections />
       </main>
       {/* <footer className={styles.footer}>

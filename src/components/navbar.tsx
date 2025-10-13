@@ -16,11 +16,13 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import SsidChartIcon from "@mui/icons-material/SsidChart";
+import { useRouter } from "next/navigation";
 
 const pages = ["Collections", "About", "ReadMe"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function NavBar() {
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -35,8 +37,12 @@ export default function NavBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page?: string) => {
     setAnchorElNav(null);
+    if (page) {
+      const href = `/${page.toLowerCase()}`
+        router.push(href);
+    }
   };
 
   const handleCloseUserMenu = () => {
@@ -104,10 +110,10 @@ export default function NavBar() {
               }}
               //   open prop dictates when menu is open: when anchorElNav is not null - set onClick of burger menu icon
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              onClose={(e) => handleCloseNavMenu}
               sx={{ display: { xs: "block", md: "none" } }}>
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={(e) => handleCloseNavMenu(page)}>
                   <Typography sx={{ textAlign: "center" }}>{page}</Typography>
                 </MenuItem>
               ))}
