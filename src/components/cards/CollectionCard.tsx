@@ -15,7 +15,7 @@ export default function CollectionCard({ collection, href }: Props) {
       <Card sx={{ marginBottom: "0.8rem" }}>
         <CardActionArea>
           <CardContent>
-            <Typography variant="h6">
+            <Typography variant="subtitle1">
               {collection.icon ?? "📁"} {collection.collection_name}
             </Typography>
           </CardContent>
