@@ -44,20 +44,12 @@ export default async function ItemPage({ params }: Params) {
       </Typography>
       <div className="rounded bg-neutral-100 p-4 text-sm">
         {itemData.map((i) => {
-          const created = new Date(i.created_at);
-          const updated = new Date(i.updated_at);
           return (
-            // TODO: mui component text output and put into own client component
             <div key={i.id}>
-              {/* if less than 10 items datas, use item data card, if more use mui accordian */}
+              {/* TODO: if less than 10 items datas, use item data card, if more use mui accordian */}
               <ItemDataCard iData={i}>
 
               </ItemDataCard>
-              {/* <p>created: {created.toLocaleString()}</p>
-              {i.updated_at !== i.created_at && (
-                <p>updated: {updated.toLocaleString()}</p>
-              )}
-              <p>{i.data_body}</p> */}
             </div>
           );
         })}

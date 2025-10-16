@@ -7,7 +7,7 @@ export default async function CollectionsPage() {
   // useEffect
   const collections = await getCollections();
   return (
-    <section className="space-y-4">
+    <section>
       <Typography
         variant="h4"
         noWrap

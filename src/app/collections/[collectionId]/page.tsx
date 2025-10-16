@@ -18,7 +18,7 @@ export default async function CollectionPage( { params }: Props) {
   // TODO: add guards
   const collectionName = getCollectionNameById(id) || "error";
   return (
-    <section className="space-y-4">
+    <section>
       <Typography
         variant="h4"
         noWrap

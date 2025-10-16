@@ -11,7 +11,7 @@ export default function ItemCard( {item, href} : Props) {
       <Card>
         <CardActionArea>
           <CardContent>
-            <Typography variant="subtitle1">{item.item_name}</Typography>
+            <Typography variant="subtitle1"> {item.icon ?? "📁"} {item.item_name}</Typography>
           </CardContent>
         </CardActionArea>
       </Card>

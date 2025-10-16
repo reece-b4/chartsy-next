@@ -4,7 +4,8 @@ import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/theme";
-import NavBar from "@/components/navbar";
+import NavBar from "@/components/Navbar";
+import IconBreadcrumbs from "@/components/IconBreadcrumbs";
 
 // import localFont from 'next/font/local'
 
@@ -49,6 +50,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <NavBar />
+            <IconBreadcrumbs />
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>
