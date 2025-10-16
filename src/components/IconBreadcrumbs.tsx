@@ -28,7 +28,6 @@ interface ItemProperties {
   icon?: string;
 }
 const getItemPropertiesById = (id: string): ItemProperties => {
-  console.log("getting item properties for id:", id);
   const item = items.find((item) => {
     return item.id.toString() === id;
   });
@@ -37,7 +36,6 @@ const getItemPropertiesById = (id: string): ItemProperties => {
 
 export default function IconBreadcrumbs() {
   const params = useParams();
-  console.log("item id", params.itemId);
 
   const collectionProperties: CollectionProperties = params.collectionId
     ? getCollectionNameById(params.collectionId as string)
