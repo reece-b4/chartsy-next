@@ -50,6 +50,7 @@ export default function IconBreadcrumbs() {
   const itemName = itemProperties.itemName;
   const itemIcon = itemProperties.icon;
 
+  type Crumb = { label: string; href?: string; icon: string };
   const breadcrumbs = [
     { label: "Collections", href: "/collections", icon: "🏠" },
     collectionName && {
@@ -58,7 +59,9 @@ export default function IconBreadcrumbs() {
       icon: collectionIcon,
     },
     itemName && { label: itemName, icon: itemIcon },
-  ].filter(Boolean);
+    // collectionName and itemName are conditionally added so filter out these values if they are falsy
+    // type predicate: c is Crumb that c must of type crumb after filtering vs (c: Crumb) meaning c being passed in if of type crumb before filtering as it can be falsy at this point.
+  ].filter((c): c is Crumb => Boolean(c));;
 
   return (
     <section>
