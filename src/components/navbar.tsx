@@ -66,7 +66,7 @@ export default function NavBar() {
             noWrap
             component="a"
             // add route
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -138,13 +138,13 @@ export default function NavBar() {
             }}>
             Chartsy
           </Typography>
-          {/* this is buttons products pricing blog */}
+          {/* this is buttons: collections, about, readme on left side of bar */}
           {/* MEDIUM */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={(e)=>handleCloseNavMenu(page)}
                 sx={{ my: 2, color: "white", display: "block" }}>
                 {page}
               </Button>

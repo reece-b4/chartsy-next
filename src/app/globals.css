@@ -6,6 +6,7 @@
   --okclh1: oklch(0.623 0.199 264.05);
   --okclh2: oklch(0.7 0.1 265);
   --okclh3: oklch(0.7 0.1 215);
+  --max-width: 1200px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +36,7 @@ body {
   margin: 0;
 }
 
+/* TODO is there a better element to use than section for general container purposes that isn't container used throughout the app? */
 section {
   display: flex;
   flex-direction: column;
@@ -42,7 +44,8 @@ section {
   align-items: center;
   justify-self: center;
   padding: 1rem;
-  max-width: 1200px;
+  max-width: var(--max-width);
+  width: 100%;
 }
 
 a {
