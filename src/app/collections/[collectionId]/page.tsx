@@ -4,6 +4,7 @@ import { getCollectionById } from "@/services/api/collections";
 import { Items } from "chartsy-types";
 import { Typography } from "@mui/material";
 import React from "react";
+import ItemsGrid from "@/app/collections/[collectionId]/items/ItemsGrid";
 
 // params are automatically handed to pages (not root) but are async in dynamic routes
 // need to type params as a promise and await getting content in async components and use React.use in client components:
@@ -13,7 +14,7 @@ type Props = { params: Promise<{ collectionId: string }> };
 export default async function CollectionPage({ params }: Props) {
   const { collectionId } = await params;
   const collection = await getCollectionById(collectionId);
-  const items: Items = await getItemsByCollectionId(collectionId);
+  const initialItems: Items = await getItemsByCollectionId(collectionId);
   // TODO: add guards
   const collectionName = collection.collection_name;
   return (
@@ -31,15 +32,8 @@ export default async function CollectionPage({ params }: Props) {
         }}>
         {collectionName}
       </Typography>
-      <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {items.map((i) => (
-          <ItemCard
-            item={i}
-            key={i.id}
-            href={`/collections/${collectionId}/items/${i.id}`}
-          />
-        ))}
-      </div>
+      <ItemsGrid initialItems={initialItems} />
+
     </section>
   );
 }

@@ -10,6 +10,7 @@ import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import { Collection } from "chartsy-types";
 import * as React from "react";
+import { fmt } from "@/lib/utils";
 
 type Props = {
   collection: Collection;
@@ -17,19 +18,6 @@ type Props = {
   onDelete?: () => void;
   deleting?: boolean;
 };
-
-// previous hydration error due to client/server mismatch
-// solution: Deterministic formatter: fixed locale + timezone
-// class constructor
-const fmt = new Intl.DateTimeFormat("en-GB", {
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-  hour: "2-digit",
-  minute: "2-digit",
-  hour12: false,
-  timeZone: "Europe/London",
-});
 
 export default function CollectionCard({
   collection,
@@ -75,20 +63,20 @@ export default function CollectionCard({
             {collection.collection_name}
           </Typography>
         </CardContent>
-          </CardActionArea>
-        <CardActions>
-          <Button size="small">update</Button>
-          {onDelete && (
-            <Button
-              size="small"
-              onClick={onDelete}
-              disabled={deleting}
-              aria-label={`Delete ${collection.collection_name}`}>
-              delete
-            </Button>
-          )}
-          <Button size="small">insights</Button>
-        </CardActions>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small">update</Button>
+        {onDelete && (
+          <Button
+            size="small"
+            onClick={onDelete}
+            disabled={deleting}
+            aria-label={`Delete ${collection.collection_name}`}>
+            delete
+          </Button>
+        )}
+        <Button size="small">insights</Button>
+      </CardActions>
     </Card>
   );
 }

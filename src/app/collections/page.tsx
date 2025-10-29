@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import CollectionsGrid from "./[collectionId]/items/[itemId]/CollectionsGrid";
+import CollectionsGrid from "./CollectionsGrid";
 import { getAllCollections } from "@/services/api/collections";
 
 // update items page to have items grid
