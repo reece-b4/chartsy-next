@@ -15,7 +15,7 @@ export default function ItemDataCard({ iData }: Props) {
   const updated = new Date(iData.updated_at).toLocaleString();
   const showUpdated = created !== updated
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ minWidth: 275, marginBottom: "1rem" }}>
       <CardContent>
         <Typography sx={{ color: "text.secondary", fontSize: 14, mb: showUpdated?0:1.5 }}>
           created: {created}
