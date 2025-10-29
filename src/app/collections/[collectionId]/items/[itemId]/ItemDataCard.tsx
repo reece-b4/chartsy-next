@@ -1,9 +1,9 @@
-import { Divider } from "@mui/material";
 import * as React from "react";
 // specified imports help minimize bundle size/tree shaking
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { SingleItemData } from "chartsy-types";
@@ -20,7 +20,7 @@ export default function ItemDataCard({ iData }: Props) {
         <Typography sx={{ color: "text.secondary", fontSize: 14, mb: showUpdated?0:1.5 }}>
           created: {created}
         </Typography>
-        {updated !== created && (
+        {showUpdated && (
           <Typography sx={{ color: "text.secondary", mb: 1.5, fontSize: 14 }}>
             updated: {updated}
           </Typography>
