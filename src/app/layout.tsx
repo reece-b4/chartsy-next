@@ -4,8 +4,7 @@ import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/theme";
-import NavBar from "@/components/Navbar";
-import IconBreadcrumbs from "@/components/IconBreadcrumbs";
+import NavBar from "@/components/navbar";
 
 // import localFont from 'next/font/local'
 
@@ -40,9 +39,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  breadcrumbs
 }: Readonly<{
+  breadcrumbs: React.ReactNode,
   children: React.ReactNode;
 }>) {
+  // breadcrumbs uses parallel routes (using @ dir naming) and slot components to use dynamic url ids as params are not available in root layout.tsx as does not have dynamic url at that point
   return (
     <html lang="en">
       <body
@@ -50,7 +52,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <NavBar />
-            <IconBreadcrumbs />
+            {breadcrumbs}
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>
