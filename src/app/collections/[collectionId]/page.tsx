@@ -1,4 +1,4 @@
-import ItemCard from "@/components/cards/ItemCard";
+import ItemCard from "@/app/collections/[collectionId]/items/ItemCard";
 import { getItemsByCollectionId } from "@/services/api/items";
 import { getCollectionById } from "@/services/api/collections";
 import { Items } from "chartsy-types";

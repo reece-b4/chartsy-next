@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import CollectionsGrid from "./CollectionsGrid";
+import CollectionsGrid from "./[collectionId]/items/[itemId]/CollectionsGrid";
 import { getAllCollections } from "@/services/api/collections";
 
 // update items page to have items grid
@@ -25,7 +25,7 @@ import { getAllCollections } from "@/services/api/collections";
 // MODULE SCOPE: pure functions/utilities, type definitions, config and constants, data fetcher definitions
 
 export default async function CollectionsPage() {
-    // COMPONENT SCOPE: awaits, fetching/DB reads, anything using params/headers/hooks/cookies, stateful logic, timers
+  // COMPONENT SCOPE: awaits, fetching/DB reads, anything using params/headers/hooks/cookies, stateful logic, timers
   const collections = await getAllCollections();
   return (
     <section>

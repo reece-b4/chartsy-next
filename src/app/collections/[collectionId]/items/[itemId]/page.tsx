@@ -1,16 +1,17 @@
 import { ItemDataArray } from "chartsy-types";
 import { Typography } from "@mui/material";
-import ItemDataCard from "@/components/cards/ItemDataCard";
+import ItemDataCard from "@/app/collections/[collectionId]/items/[itemId]/ItemDataCard";
 import { getCollectionById } from "@/services/api/collections";
 import { getItemById } from "@/services/api/items";
-import { getItemDataByItemId} from "@/services/api/itemData"
+import { getItemDataByItemId } from "@/services/api/itemData";
 
 type Params = { params: Promise<{ collectionId: string; itemId: string }> };
 
 export default async function ItemPage({ params }: Params) {
   const { itemId, collectionId }: { itemId: string; collectionId: string } =
-  await params;
-  const collectionName: string = (await getCollectionById(collectionId)).collection_name;
+    await params;
+  const collectionName: string = (await getCollectionById(collectionId))
+    .collection_name;
   const itemData: ItemDataArray = await getItemDataByItemId(itemId);
   const itemName: string = (await getItemById(itemId)).item_name;
 
@@ -47,9 +48,7 @@ export default async function ItemPage({ params }: Params) {
           return (
             <div key={i.id}>
               {/* TODO: if less than 10 items datas, use item data card, if more use mui accordian */}
-              <ItemDataCard iData={i}>
-
-              </ItemDataCard>
+              <ItemDataCard iData={i}></ItemDataCard>
             </div>
           );
         })}
