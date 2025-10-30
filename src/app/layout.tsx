@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from '@mui/material/CssBaseline';
 import theme from "@/theme";
 import NavBar from "@/components/navbar";
 
@@ -48,9 +49,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable}`}>
-        <AppRouterCacheProvider>
+        className={`${geistSans.variable} ${geistMono.variable} ${roboto.className}`}>
+        <AppRouterCacheProvider options={{ key: 'mui' }}>
           <ThemeProvider theme={theme}>
+            {/* ensure consistency across browsers */}
+            <CssBaseline />
             <NavBar />
             {breadcrumbs}
             {children}
