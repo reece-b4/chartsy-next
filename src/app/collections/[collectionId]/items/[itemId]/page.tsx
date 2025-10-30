@@ -43,7 +43,7 @@ export default async function ItemPage({ params }: Params) {
         }}>
         {itemName}
       </Typography>
-      <div className="rounded p-4 text-sm">
+      <div className="w-full">
         {itemData.map((i) => {
           return (
             <div key={i.id}>
