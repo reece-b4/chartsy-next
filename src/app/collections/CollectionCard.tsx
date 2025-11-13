@@ -12,6 +12,7 @@ import { Collection } from "chartsy-types";
 import * as React from "react";
 import { fmt } from "@/lib/utils";
 import { useModal } from "@/components/modals/ModalProvider";
+import UpdateCollectionModal from "@/components/modals/UpdateCollectionModal";
 
 type Props = {
   collection: Collection;
@@ -36,15 +37,15 @@ export default function CollectionCard({
   // TODO: implement showUpdated for any changes in child itemData
   const showUpdated = false;
   const { openModal } = useModal();
-  console.log("useModal()", useModal());
 
   const handleUpdateClick = () => {
-    openModal(
-      <div>
-        <p>Update modal for: {collection.collection_name}</p>
-        {/* later we’ll drop a real form in here */}
-      </div>
-    );
+    openModal({
+      title: `Update collection: ${collection.collection_name}`,
+      content: (
+        <UpdateCollectionModal collectionId={collection.id} initialName={collection.collection_name} initialIcon={collection.icon} />
+      ),
+      actions: (<Button type="submit" form="update-collection-form" variant="contained">Save</Button>),
+    });
   };
 
   return (
