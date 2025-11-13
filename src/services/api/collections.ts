@@ -1,6 +1,7 @@
 import { Collections, Collection } from "chartsy-types";
 
 // CONNECTS TO EXPRESS API
+// next fetch function is built on web fetch - using this vs axios is standard practice in nextjs as it allows for better integration with next features like caching, revalidation, and streaming
 
 export async function getAllCollections(): Promise<Collections> {
   const res = await fetch(`${process.env.API_URL}/collections`, {
@@ -15,7 +16,7 @@ export async function getAllCollections(): Promise<Collections> {
 
 export async function getCollectionById(id: string): Promise<Collection> {
   const res = await fetch(`${process.env.API_URL}/collection/${id}`, {
-    next: { tags: ["collection"] },
+    next: { tags: [`collection:${id}`] },
   });
   if (!res.ok) throw new Error("Failed to load collection");
   const data = await res.json();

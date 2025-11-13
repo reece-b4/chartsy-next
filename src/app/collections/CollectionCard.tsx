@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import { Collection } from "chartsy-types";
 import * as React from "react";
 import { fmt } from "@/lib/utils";
+import { useModal } from "@/components/modals/ModalProvider";
 
 type Props = {
   collection: Collection;
@@ -31,8 +32,21 @@ export default function CollectionCard({
     () => fmt.format(new Date(collection.created_at)),
     [collection.created_at]
   );
+
   // TODO: implement showUpdated for any changes in child itemData
   const showUpdated = false;
+  const { openModal } = useModal();
+  console.log("useModal()", useModal());
+
+  const handleUpdateClick = () => {
+    openModal(
+      <div>
+        <p>Update modal for: {collection.collection_name}</p>
+        {/* later we’ll drop a real form in here */}
+      </div>
+    );
+  };
+
   return (
     // link component routes are prefetched by next when they enter the viewport. will still do so using CardActionArea component=link
     // Static Route: the full route is prefetched.
@@ -65,7 +79,9 @@ export default function CollectionCard({
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small">update</Button>
+        <Button size="small" onClick={handleUpdateClick}>
+          update
+        </Button>
         {onDelete && (
           <Button
             size="small"
