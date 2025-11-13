@@ -40,8 +40,8 @@ export default function NavBar() {
   const handleCloseNavMenu = (page?: string) => {
     setAnchorElNav(null);
     if (page) {
-      const href = `/${page.toLowerCase()}`
-        router.push(href);
+      const href = `/${page.toLowerCase()}`;
+      router.push(href);
     }
   };
 
@@ -144,7 +144,7 @@ export default function NavBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={(e)=>handleCloseNavMenu(page)}
+                onClick={(e) => handleCloseNavMenu(page)}
                 sx={{ my: 2, color: "white", display: "block" }}>
                 {page}
               </Button>
